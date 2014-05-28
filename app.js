@@ -52,11 +52,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 
 app.get('/', function(req, res, next){
-  res.render('index', { title: 'Express' });
-});
-
-app.get('/items', function(req, res, next){
-  res.set('Content-Type', 'application/json');
+    res.set('Content-Type', 'application/json');
   console.log('got a request');
   var offset = req.param('offset') || 0;
   var limit = req.param('limit') || 10;
@@ -69,9 +65,14 @@ app.get('/items', function(req, res, next){
   });
   //provider.get(offset, limit, listener);
   provider.get(offset, limit, function(stream){
-    stream.pipe(new SlowStream({maxWriteInterval:10})).pipe(JSONStream.stringify()).pipe(res);
+    stream.pipe(JSONStream.stringify()).pipe(res);
     stream.on('end', function(){res.end();});
   });
+  //res.render('index', { title: 'Express' });
+});
+
+app.get('/items', function(req, res, next){
+
 });
 
 var port = 3000;
