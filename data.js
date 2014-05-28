@@ -1,4 +1,4 @@
-var provider = require('./spark_provider').sparkProvider();
+var provider = require('./spark_provider')();
 var users = [];
 
 var imageUrls = [

@@ -2,9 +2,10 @@ var MongoClient = require('mongodb').MongoClient;
 var ObjectID = require('mongodb').ObjectID;
 
 
-var sparkProvider =  function(){
+module.exports = function(){
   var dbName = 'sparkDB';
   var dbPath = 'mongodb://localhost:27017/' + dbName;
+  var offset = 0;
   return {
     getDbName: function(){return dbName;},
     getDbPath: function(){return dbPath;},
@@ -36,9 +37,15 @@ var sparkProvider =  function(){
           callback(err, items);
         });
       });
+    },
+
+    get: function(offset, limit, callback){
+      var obj = this;
+      this.getCollection(function(err, collection){
+        var stream = collection.find().limit(limit).skip(offset).stream();
+        callback(stream);
+      });
     }
-    
     
   };
 }
-exports.sparkProvider = sparkProvider;

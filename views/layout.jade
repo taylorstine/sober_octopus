@@ -3,5 +3,37 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js")
+    script.
+      $(document).ready(function(){
+      $.ajax({
+
+      type: "GET",
+
+      url: "http://localhost:3000/items",
+
+      data: { event: ""},
+
+      async: true,
+
+      beforeSend: function(XMLHttpRequest){
+        XMLHttpRequest.addEventListener('progress', function(evt){
+          alert(evt);
+        });
+      },
+  
+      progress: function(msg){
+         alert(msg);  
+      } ,
+      success: function( msg ) {
+        alert('success');
+
+      }
+
+      });
+     
+      });
+              
   body
     block content
+  
