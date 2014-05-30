@@ -13,9 +13,14 @@ module.exports = function(){
     getCollection: function(callback){
       var obj = this;
       MongoClient.connect(this.getDbPath(), function(err, db){
-        db.collection(obj.getDbName(), {w:1}, function(err, collection){
-          callback(err, collection);
-        });
+        if (err){
+          console.log(err);
+        }
+        if (db){
+          db.collection(obj.getDbName(), {w:1}, function(err, collection){
+            callback(err, collection);
+          });
+        }
       });
     },
 
@@ -42,7 +47,14 @@ module.exports = function(){
     get: function(offset, limit, callback){
       var obj = this;
       this.getCollection(function(err, collection){
-        var stream = collection.find().limit(limit).skip(offset).stream();
+        var cursor = collection.find()
+        if (limit){
+          cursor.limit(parseInt(limit, 10));
+        }
+        if (offset){
+          cursor.skip(parseInt(offset, 10));
+        }
+        var stream = cursor.stream();
         callback(stream);
       });
     }

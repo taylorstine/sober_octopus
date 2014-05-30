@@ -25,127 +25,127 @@ var imageUrls = [
 ];
 
 var holding_colors = [
-  "0x353942",
-  "0x583728",
-  '0x505B77',
-  '0x898797',
-  '0x7F5452',
-  '0xF55243',
-  '0x888888',
-  '0x6F6048',
-  '0x383839',
-  '0xBD8A6F',
-  '0xE8CEA8',
-  '0x141311',
-  '0x71212E',
-  '0x828385',
-  '0x209DCE',
-  '0x936251',
-  '0x856F97',
-  '0x6F8A75',
-  '0x476799',
-  '0x724834'
+  "#353942",
+  "#583728",
+  '#505B77',
+  '#898797',
+  '#7F5452',
+  '#F55243',
+  '#888888',
+  '#6F6048',
+  '#383839',
+  '#BD8A6F',
+  '#E8CEA8',
+  '#141311',
+  '#71212E',
+  '#828385',
+  '#209DCE',
+  '#936251',
+  '#856F97',
+  '#6F8A75',
+  '#476799',
+  '#724834'
 ];
 
 var sizes = [
   {
-    width:'736',
-    height:'1361'
+    width:736,
+    height:1361
   },
   
   {
-    width:'359',
-    height: '539'
+    width:359,
+    height: 539
   },
     
   {
-    width: '500',
-    height: '641'
+    width: 500,
+    height: 641
   },
 
   {
-    width:'554',
-    height:'1039'
+    width:554,
+    height:1039
   },
 
   {
-    width:'500',
-    height:'482'
+    width:500,
+    height:482
   },
 
   {
-    width:'703',
-    height:'938'
+    width:703,
+    height:938
   },
 
   {
-    width:'500',
-    height:'716'
+    width:500,
+    height:716
   },
 
   {
-    width: '500',
-    height: '624'
+    width: 500,
+    height: 624
   },
 
   {
-    width: '550',
-    height: '550'
+    width: 550,
+    height: 550
   },
   
   {
-    width: '253',
-    height: '379'
+    width: 253,
+    height: 379
   },
 
   {
-    width: '736',
-    height: '1104'
+    width: 736,
+    height: 1104
   },
 
   {
-    width: '500',
-    height: '645'
+    width: 500,
+    height: 645
   },
 
   {
-    width: '736',
-    height: '736'
+    width: 736,
+    height: 736
   },
   
   {
-    width: '350',
-    height: '537'
+    width: 350,
+    height: 537
   },
 
   {
-    width: '600',
-    height: '983'
+    width: 600,
+    height: 983
   },
 
   {
-    width: '736',
-    height: '489'
+    width: 736,
+    height: 489
   },
 
   {
-    width: '351',
-    height: '409'
+    width: 351,
+    height: 409
   },
 
   {
-    width: '600',
-    height: '866'
+    width: 600,
+    height: 866
   },
 
   {
-    width: '500',
-    height: '750'
+    width: 500,
+    height: 750
   },
 
   {
-    width: '290',
-    height: '370'
+    width: 290,
+    height: 370
   }
 ];
 
@@ -376,8 +376,7 @@ function printProducts(){
   });
 };
 
-function generateData(){
-  var numProducts = 3;
+function generateData(numProducts){
   var products = [];
   generateUsers();
   for (var idx = 0; idx < numProducts; idx+=1){
@@ -388,5 +387,5 @@ function generateData(){
   console.log("saved products");
 }
 
-//generateData();
+//generateData(25);
 printProducts();
